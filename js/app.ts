@@ -98,20 +98,66 @@ console.log(password3);
 //UNIONES, INTERSECCIONES, TIPOS LITERALES
 interface Bear {
     weight: number;
-    color: string;ç
+    color: string;
 }
 interface Tiger {
     weight: number;
     speed: number;
 }
 
+interface Lion {
+    strenght: string;
+    speed: number;
+}
+
+let word : number | string; //Admite los dos tipos.
+word = 1234;
+word ="abcd";
+
+let animal :Bear = {
+    weight:200,
+    color:"white",
+}
 
 
+let animal2: Bear|Tiger ; animal2 = {
+    weight:250,
+    color:"brown",
+}
+
+animal2 = {
+    weight: 150,
+    speed: 50,
+    color:"pink",
+}
+
+let animal3 : Bear | (Tiger & Lion)
+animal3 =  {
+    weight: 300,
+    color:"purple",
+    speed: 150,
+    strenght: "max"
+}
+
+hello = undefined;
+console.log(typeof hello);
+hello = null;
+console.log(typeof hello);
 
 
+const sayHello2 = (greet:string = "Luis"):void => {
+    console.log("Hello " + greet);
+}
 
+sayHello2();
+sayHello2("Dani");
 
+const retornoInalcanzable = ():never => {
+    throw TypeError("Something went wrong");
+}
 
-
-
-
+const retornoInalcanzable2 = (number:number):never => {
+    while (true){
+        console.log(number++);
+    }
+}
